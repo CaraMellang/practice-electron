@@ -1,0 +1,72 @@
+{
+  "name": "practive-electron",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./public/electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.1",
+    "@types/node": "^16.11.38",
+    "@types/react": "^18.0.10",
+    "@types/react-dom": "^18.0.5",
+    "@types/styled-components": "^5.1.25",
+    "electron-is-dev": "^2.0.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start-renderer": "cross-env BROWSER=none npm run start",
+    "start-main": "electron .",
+    "compile-main": "tsc ./public/electron.ts",
+    "start-main-after-renderer": "wait-on http://localhost:3000 && npm run start-main",
+    "dev": "concurrently -n renderer, main 'npm:start-renderer' 'npm:start-main-after-renderer'",
+    "dist": "npm run build && electron-builder --dir",
+    "predist": "npm run compile-main",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "build": {
+    "appId": "net.electest.example",
+    "productName": "electest",
+    "files": [
+      "build/**/*",
+      "icon.png",
+      "electron.js"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^19.0.1",
+    "electron-builder": "^23.0.3",
+    "typescript": "^4.7.2",
+    "wait-on": "^6.0.1"
+  }
+}
