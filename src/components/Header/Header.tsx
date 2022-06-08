@@ -23,6 +23,15 @@ export default function Header() {
       >
         투두
       </NavLink>
+      <NavLink
+        to={"/timeline"}
+        style={({ isActive }) => ({
+          background: isActive ? "#962cc7" : "#fff",
+          color: isActive ? "#fff" : "#000",
+        })}
+      >
+        타임라인
+      </NavLink>
     </HeaderWrap>
   );
 }
@@ -30,7 +39,7 @@ export default function Header() {
 const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 5rem;
+  width: 10rem;
   margin: auto;
   margin-top: 0.5rem;
   a {
