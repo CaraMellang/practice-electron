@@ -32,6 +32,15 @@ export default function Header() {
       >
         타임라인
       </NavLink>
+      <NavLink
+        to={"/mansony"}
+        style={({ isActive }) => ({
+          background: isActive ? "#962cc7" : "#fff",
+          color: isActive ? "#fff" : "#000",
+        })}
+      >
+        맨소니
+      </NavLink>
     </HeaderWrap>
   );
 }
@@ -39,7 +48,7 @@ export default function Header() {
 const HeaderWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 10rem;
+  width: 15rem;
   margin: auto;
   margin-top: 0.5rem;
   a {

@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Main from "./page/Main";
 import styled, { createGlobalStyle } from "styled-components";
 import { createTheme, ThemeProvider } from "@mui/material";
+import type {} from "@mui/lab/themeAugmentation";
 
 const darkTheme = createTheme({
   palette: {
